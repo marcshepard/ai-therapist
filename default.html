@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Therapist</title>
+        <link rel="icon" href="/favicon.png" type="image/png"/>
+        <script src="default.js"></script>
+        <style>
+            .centered_button {
+                display: block;
+                margin: 0 auto;
+            }
+            .centered_text {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="centered_text">
+            <h1>AI Therapist</h1>
+            <p>Welcome to AI powered therapy*</p>
+            <br/>
+        </div>
+        <div>
+            <button id="start_stop" class="centered_button" onclick="startOrStopSession()">Start a session</button>
+            <br/>
+        </div>
+        <div id="scrollable_text" style="height: 400px; overflow-y: scroll; background-color:lightgrey; padding: 10px;">
+            <p>Click the "Start a session" button above to begin. When prompted for input, type your answer in the text box below.</p>
+        </div>
+        <input id="input" type="text" style="width: 100%" onkeydown="processInput(event)" disabled placeholder="Type here...">
+        <div class="centered_text">
+            <br/>
+            <p>*Disclosure: This is a prototype powered by OpenAI and is intended for recreational purposes only; it is not certified for nor intended to replace a human therapist.</p>
+        </div>
+    </body>
+</html>
+
+
+
+
