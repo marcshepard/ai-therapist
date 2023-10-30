@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open default.html",
-            "file": "c:\\Users\\marcs\\Repos\\ai-therapist\\default.html"
+            "file": "c:\\Users\\marcs\\Repos\\ai-therapist\\index.html"
         }
     ]
 }
