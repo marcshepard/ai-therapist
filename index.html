@@ -4,37 +4,46 @@
         <title>AI Therapist</title>
         <link rel="icon" href="/favicon.png" type="image/png"/>
         <script src="default.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
-            .centered_button {
-                display: block;
-                margin: 0 auto;
-            }
-            .centered_text {
+            #header_text {
                 text-align: center;
             }
+            #start_stop {
+                display: block;
+                margin: 0 auto;
+                height: auto;
+            }
+            #scrollable_text {
+                height: 400px;
+                overflow-y: scroll;
+                background-color:lightgrey;
+                margin-top: 1em;
+                padding-left: 1em;
+                padding-right: 1em;
+            }
+            #input {
+                width: 100%;
+                font-size: 1.25em;
+                height: auto;
+            }
+
         </style>
     </head>
     <body>
-        <div class="centered_text">
+        <div id="header_text">
             <h1>AI Therapist</h1>
             <p>Welcome to AI powered therapy*</p>
-            <br/>
         </div>
         <div>
-            <button id="start_stop" class="centered_button" onclick="startOrStopSession()">Start a session</button>
-            <br/>
+            <button id="start_stop" onclick="startOrStopSession()">Start a session</button>
         </div>
-        <div id="scrollable_text" style="height: 400px; overflow-y: scroll; background-color:lightgrey; padding: 10px;">
+        <div id="scrollable_text">
             <p>Click the "Start a session" button above to begin. When prompted for input, type your answer in the text box below.</p>
         </div>
-        <input id="input" type="text" style="width: 100%" onkeydown="processInput(event)" disabled placeholder="Type here...">
-        <div class="centered_text">
-            <br/>
+        <input id="input" onkeydown="processInput(event)" disabled placeholder="Type here...">
+        <div>
             <p>*Disclosure: This is a prototype powered by OpenAI and is intended for recreational purposes only; it is not certified for nor intended to replace a human therapist.</p>
         </div>
     </body>
 </html>
-
-
-
-

@@ -65,11 +65,10 @@ function processInput(event) {
         USER = input.value;
         persistValue("user", USER);
         addChatMessage (RECEPTIONIST_NAME, "Hi, " + USER + 
-            ". Next we'll need your openai API key in order to use the chat service. " +
-            "If you don't already have a key, the instructions are <a href='https://www.howtogeek.com/885918/how-to-get-an-openai-api-key/'>here</a>. " +
-            "If you click through, you will see that getting an API key is easy, you will get free credit to start with, " +
-            "you can put a cap on it so you only use your free credit, and the per message cost is so low that the initial credit will last quite a while. " +
-            "In terms of privacy, is kept in localStorage on your device and not sent to this website.</p>");
+            ". Next we'll need an OpenAI API key in order to use the chat service. " +
+            "If you don't already have a key, you can get one with free trial credit per <a href='https://www.howtogeek.com/885918/how-to-get-an-openai-api-key/'>here</a>. " +
+            "Remember to keep your key safe! For convenience, we'll remember it in this browswers local storage (only kept on this device), and you can type " +
+            "FORGET at anytime and we'll remove it.</p>");
         input.value = "";
         INPUT_STATE = INPUT_STATES.GET_API_KEY;
     } else if (INPUT_STATE == INPUT_STATES.GET_API_KEY) {
