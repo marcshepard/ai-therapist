@@ -112,32 +112,39 @@ function getAiTherapistReply() {
     }
 
     callOpenAI(OPENAI_API_KEY, messages, 0.2)
-        .catch(error => addChatMessage (AI_THERAPIST_NAME, "Sorry, I'm having my owmn troubles (" + error + ") . Please try again later."));
 }
 
 async function callOpenAI(apiKey, messages, temperature) {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + apiKey
-        },
-        body: JSON.stringify({
-            "model": "gpt-3.5-turbo",
-            "messages": messages,
-            "temperature": temperature,
-        }),
-    });
+    let reply = "Sorry, I'm having my own troubles";
 
-    if (!response.ok) {
-        throw new Error("HTTP error! status: ${response.status}");
-    }
+    try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + apiKey
+            },
+            body: JSON.stringify({
+                "model": "gpt-3.5-turbo",
+                "messages": messages,
+                "temperature": temperature,
+            }),
+        });
 
-    let data = await response.json();
-    let reply = data.choices[0].message.content;
-    addChatMessage (AI_THERAPIST_NAME, reply);
-    input.disabled = false;
-    input.focus();
+        let data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(response.status);
+        }
+
+        reply = data.choices[0].message.content;
+    } catch (error) {
+        reply = "Sorry, I'm having my own troubles (" + error.message + ")";
+    } finally {
+        addChatMessage (AI_THERAPIST_NAME, reply);
+        input.disabled = false;
+        input.focus();
+    } 
 }
 
 function clearChat() {
