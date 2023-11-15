@@ -2,8 +2,10 @@
 <html>
     <head>
         <title>AI Therapist</title>
-        <link rel="icon" href="/favicon.png" type="image/png"/>
+        <link rel="icon" type="image/jpg" href="favicon_120.jpg"/>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="default.js"></script>
+        <meta name="google-signin-client_id" content="542877739013-rq23j7pnjrvnm2r684av594hk8ornqbg.apps.googleusercontent.com">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
             #header_text {
@@ -35,6 +37,7 @@
             <h1>AI Therapist</h1>
             <p>Welcome to AI powered therapy*</p>
         </div>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
         <div>
             <button id="start_stop" onclick="startOrStopSession()">Start a session</button>
         </div>
